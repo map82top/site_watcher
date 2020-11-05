@@ -9,7 +9,7 @@ import os
 app = Flask(__name__,
             static_url_path='',
             static_folder='frontend/static')
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode='threading')
 
 @app.route('/')
 def index():
@@ -43,7 +43,6 @@ def get_sites():
     storage_proxy = pykka.ActorRegistry.get_by_urn(storage_urn).proxy()
     for site in storage_proxy.get_sites().get():
         emit('site', json.dumps(site, cls=AlchemyEncoder))
-
 
 @socketio.on('delete_site')
 def delete_site(site_data):

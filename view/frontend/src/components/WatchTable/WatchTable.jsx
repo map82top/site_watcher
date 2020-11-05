@@ -57,6 +57,14 @@ const WatchTable = props => {
             // },
         },
         {
+            title: 'URL',
+            dataIndex: 'url',
+            // sorter: {
+            //   compare: (a, b) => a.name > b.name,
+            //   multiple: 1,
+            // },
+        },
+        {
             title: 'Status',
             dataIndex: 'status',
             // sorter: {

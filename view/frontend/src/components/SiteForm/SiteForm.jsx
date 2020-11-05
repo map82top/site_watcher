@@ -52,7 +52,7 @@ const SiteForm = props => {
     }
 
     return (
-        <dev className="form-wrapper">
+        <div className="form-wrapper">
             <Form
                 onFinish={onSubmit}
                 layout="horizontal"
@@ -136,7 +136,7 @@ const SiteForm = props => {
                     </Button>
                 </Form.Item>
             </Form>
-        </dev>
+        </div>
     )
 }
 

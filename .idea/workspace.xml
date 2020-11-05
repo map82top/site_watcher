@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26cdddbb-b2d1-4771-b2eb-07b8a30af939" name="Default Changelist" comment="" />
+    <list default="true" id="26cdddbb-b2d1-4771-b2eb-07b8a30af939" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foo.db" beforeDir="false" afterPath="$PROJECT_DIR$/foo.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site_downloader/actor.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_downloader/actor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site_storage/actor.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_storage/actor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.py" beforeDir="false" afterPath="$PROJECT_DIR$/system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/src/components/SiteForm/SiteForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/src/components/SiteForm/SiteForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/src/components/WatchTable/WatchTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/src/components/WatchTable/WatchTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/static/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/rest.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/rest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/server.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,8 +42,12 @@
       </map>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="JupyterTrust" id="3580d6fc-1ac3-4738-82bd-be69cc9022ac" />
   <component name="ProjectId" id="1jgRhQrRXXvJ2GIhIdsQSC9zpig" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,8 +55,9 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/view/frontend/src/pages/CreateSite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -194,7 +211,7 @@
       <workItem from="1604424461615" duration="7486000" />
       <workItem from="1604485025978" duration="29095000" />
       <workItem from="1604561533660" duration="2432000" />
-      <workItem from="1604564286945" duration="4707000" />
+      <workItem from="1604564286945" duration="15819000" />
     </task>
     <servers />
   </component>
@@ -210,54 +227,75 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2642" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604315349998" />
-    <state width="1232" height="506" key="DebuggerActiveHint" timestamp="1604562642896">
+    <state width="1232" height="506" key="DebuggerActiveHint" timestamp="1604581981110">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1232" height="506" key="DebuggerActiveHint/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604562642896" />
+    <state width="1232" height="506" key="DebuggerActiveHint/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581981110" />
     <state x="2078" y="127" width="1662" height="853" key="DiffContextDialog" timestamp="1604314605887">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2078" y="127" width="1662" height="853" key="DiffContextDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604314605887" />
-    <state x="2692" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604223997786">
+    <state x="2692" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604569132887">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2692" y="311" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604223997786" />
-    <state width="1816" height="314" key="GridCell.Tab.0.bottom" timestamp="1604568590264">
+    <state x="2692" y="311" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604569132887" />
+    <state x="2753" y="453" width="311" height="207" key="Github.ShareDialog" timestamp="1604569152573">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1816" height="314" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604568590264" />
-    <state width="1816" height="314" key="GridCell.Tab.0.center" timestamp="1604568590264">
+    <state x="2753" y="453" width="311" height="207" key="Github.ShareDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604569152573" />
+    <state x="2694" y="233" width="419" height="647" key="Github.UntrackedFilesDialog" timestamp="1604569163574">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1816" height="314" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604568590264" />
-    <state width="1816" height="314" key="GridCell.Tab.0.left" timestamp="1604568590264">
+    <state x="2694" y="233" width="419" height="647" key="Github.UntrackedFilesDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604569163574" />
+    <state width="1816" height="264" key="GridCell.Tab.0.bottom" timestamp="1604581985293">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1816" height="314" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604568590264" />
-    <state width="1816" height="314" key="GridCell.Tab.0.right" timestamp="1604568590264">
+    <state width="1816" height="130" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690398" />
+    <state width="1816" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581985293" />
+    <state width="1816" height="264" key="GridCell.Tab.0.center" timestamp="1604581985293">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1816" height="314" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604568590264" />
-    <state width="1816" height="314" key="GridCell.Tab.1.bottom" timestamp="1604568586178">
+    <state width="1816" height="130" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690398" />
+    <state width="1816" height="264" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581985293" />
+    <state width="1816" height="264" key="GridCell.Tab.0.left" timestamp="1604581985293">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1816" height="314" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604568586178" />
-    <state width="1816" height="314" key="GridCell.Tab.1.center" timestamp="1604568586178">
+    <state width="1816" height="130" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690398" />
+    <state width="1816" height="264" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581985293" />
+    <state width="1816" height="264" key="GridCell.Tab.0.right" timestamp="1604581985293">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1816" height="314" key="GridCell.Tab.1.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604568586178" />
-    <state width="1816" height="314" key="GridCell.Tab.1.left" timestamp="1604568586177">
+    <state width="1816" height="130" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690398" />
+    <state width="1816" height="264" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581985293" />
+    <state width="1816" height="264" key="GridCell.Tab.1.bottom" timestamp="1604581961584">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1816" height="314" key="GridCell.Tab.1.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604568586177" />
-    <state width="1816" height="314" key="GridCell.Tab.1.right" timestamp="1604568586178">
+    <state width="1816" height="130" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690328" />
+    <state width="1816" height="264" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581961584" />
+    <state width="1816" height="264" key="GridCell.Tab.1.center" timestamp="1604581961584">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1816" height="314" key="GridCell.Tab.1.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604568586178" />
-    <state x="2398" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1604421601291">
+    <state width="1816" height="130" key="GridCell.Tab.1.center/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690328" />
+    <state width="1816" height="264" key="GridCell.Tab.1.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581961584" />
+    <state width="1816" height="264" key="GridCell.Tab.1.left" timestamp="1604581961584">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2398" y="188" width="1022" height="737" key="SettingsEditor/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604421601291" />
+    <state width="1816" height="130" key="GridCell.Tab.1.left/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690328" />
+    <state width="1816" height="264" key="GridCell.Tab.1.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581961584" />
+    <state width="1816" height="264" key="GridCell.Tab.1.right" timestamp="1604581961584">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1816" height="130" key="GridCell.Tab.1.right/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690328" />
+    <state width="1816" height="264" key="GridCell.Tab.1.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581961584" />
+    <state x="1479" y="237" width="431" height="640" key="RollbackChangesDialog" timestamp="1604572123904">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="1479" y="237" width="431" height="640" key="RollbackChangesDialog/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604572123904" />
+    <state x="2398" y="188" width="1012" height="737" key="SettingsEditor" timestamp="1604575422777">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="478" y="210" width="1012" height="737" key="SettingsEditor/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604572228579" />
+    <state x="2398" y="188" width="1022" height="737" key="SettingsEditor/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604575422777" />
     <state width="931" height="526" key="XDebugger.FullValuePopup" timestamp="1604562775057">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -275,10 +313,51 @@
     </state>
     <state x="2572" y="259" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604566886001" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/site_downloader/actor.py</url>
+          <line>95</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/site_downloader/actor.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/site_downloader/actor.py</url>
+          <line>91</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/view/server.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/site_storage/actor.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/view/server.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/view/server.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/site_watcher$main.coverage" NAME="main Coverage Results" MODIFIED="1604262375183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/site_watcher$server.coverage" NAME="server Coverage Results" MODIFIED="1604421120412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/view" />
     <SUITE FILE_PATH="coverage/site_watcher$rest.coverage" NAME="rest Coverage Results" MODIFIED="1604419148683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/view" />
-    <SUITE FILE_PATH="coverage/site_watcher$system.coverage" NAME="system Coverage Results" MODIFIED="1604568571607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/site_watcher$system.coverage" NAME="system Coverage Results" MODIFIED="1604581960827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
