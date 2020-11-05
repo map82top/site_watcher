@@ -1,0 +1,25 @@
+.header {
+  height: fit-content;
+
+  &-logo {
+    color: white;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+.content {
+  width: 90vw;
+  height: 90vh;
+  margin: 2% auto auto;
+}
+
+.ant-table-thead {
+  box-shadow: 0 0.1rem 0 0  rgba(0, 0, 0, .2);
+  th {
+    background: rgba(255, 150, 64, 0.4) !important;
+    border-right: 20px black !important;
+  }
+}

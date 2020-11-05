@@ -1,0 +1,22 @@
+.form-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &-title {
+        margin: 1% auto;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    &-back {
+        border: 1rem rgba(230, 230, 230, 0.9) !important;
+        background-color: rgba(0, 0, 0, 0) !important;
+        margin: 1%;
+
+        &-icon {
+            font-size: 1.5rem;
+            color: #40a9ff !important;
+        }
+    }
+}
