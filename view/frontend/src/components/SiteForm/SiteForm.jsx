@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import "./SiteForm.scss";
 import {
   Form,
@@ -7,31 +7,50 @@ import {
   Select,
     List
 } from 'antd';
-import {useHistory} from "react-router-dom";
+import {useHistory, withRouter} from "react-router-dom";
 import { DeleteOutlined } from '@ant-design/icons';
+import { checks } from "../../utils"
 
 const SiteForm = props => {
+    const {
+        location
+    } = props;
+
+    const initialState = location.state ? {
+                    "name": location.state.name,
+                    "url": location.state.url,
+                    "regular_check": location.state.regular_check,
+                } : undefined;
+
     const keyInput = useRef(null);
-    const [keys, setKeys] = useState([]);
-    const [keyListStatus, setKeyListStatus] = useState('');
+    const [keys, setKeys] = useState(location.state ?  location.state.keys.split(/[\[\]\',]/).filter((value) => value.trim() !== '') : []);
 
     const history = useHistory();
     const onSubmit = values => {
-        let message = {...values, "keys": keys}
-        console.log("Send message " + JSON.stringify(message));
-        window.socket.emit('save_site', message);
+        if(!location.state) {
+            let message = {...values, "keys": keys}
+            console.log("Send message " + JSON.stringify(message));
+            window.socket.emit('save_site', message);
+        } else {
+            let message = {...values, "keys": keys, "id":location.state.id}
+            console.log("Send message " + JSON.stringify(message));
+            window.socket.emit('update_site', message);
+        }
+
         history.replace("/");
     }
 
     const checkKeyListStatus = (rule, value, callback) => {
-        try {
-           if (keys.length === 0) {
-                throw new Error('Something wrong!');
-            }
-            callback() // < -- this
-          } catch (err) {
-            callback(err);
-          }
+       if(keys.length === 0) {
+           callback(new Object());
+       }
+    }
+
+    const isValidURL = (rule, value, callback) => {
+        debugger;
+        if(!checks.isValidHttpUrl(value)) {
+           callback(new Object());
+        }
     }
 
     const onAddNewKey = () => {
@@ -50,13 +69,13 @@ const SiteForm = props => {
     const onDeleteKey = (key) => {
         setKeys(keys.filter((value, i) => value !== key));
     }
-
     return (
         <div className="form-wrapper">
             <Form
                 onFinish={onSubmit}
                 layout="horizontal"
                 className="form"
+                initialValues={initialState}
             >
                 <Form.Item
                     className="form-item"
@@ -70,7 +89,7 @@ const SiteForm = props => {
                     className="form-item"
                     label="URL"
                     name="url"
-                    rules={[{ required: true, message: 'Please input site url!' }]}
+                    rules={[{ required: true, message: 'URL is empty or incorrect!', validator: isValidURL }]}
                 >
                     <Input/>
                 </Form.Item>
@@ -92,8 +111,7 @@ const SiteForm = props => {
                     className="form-item"
                     label="Check keys"
                     name="keys"
-                    // validateStatus={keyListStatus}
-                     rules={[{ validator: checkKeyListStatus, message: 'Not content any keys' }]}
+                    rules={[{ validator: checkKeyListStatus, message: 'Not content any keys' }]}
                 >
                     <List
                           className="form-item-key-list"
@@ -140,4 +158,4 @@ const SiteForm = props => {
     )
 }
 
-export default SiteForm;
+export default withRouter(SiteForm);

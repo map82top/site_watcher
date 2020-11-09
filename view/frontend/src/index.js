@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import React, { useEffect } from "react";
 import './styles/index.scss';
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import { Home, CreateSite } from "./pages";
+import { Home, CreateSite, StatisticPage } from "./pages";
 import io from "socket.io-client";
 
 const App = props => {
@@ -13,6 +13,12 @@ const App = props => {
             <Switch>
                 <Route path="/create_site">
                     <CreateSite />
+                </Route>
+                <Route path="/update_site">
+                    <CreateSite />
+                </Route>
+                <Route path="/versions_statistic">
+                    <StatisticPage />
                 </Route>
                  <Route path="/">
                     <Home />

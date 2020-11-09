@@ -1,10 +1,10 @@
 import enum
-from sqlalchemy import Table, Column, Integer, String, Text, Enum, MetaData, DateTime, create_engine
+from sqlalchemy import Table, Column, Integer, String, Text, Enum, MetaData, DateTime, ForeignKey, create_engine
 from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import declarative_base
 
 metadata = MetaData()
-engine = create_engine('sqlite:///foo.db', connect_args={'check_same_thread': False})
+engine = create_engine('sqlite:///foo.db', echo=True, connect_args={'check_same_thread': False})
 
 
 class WatchStatus(str, enum.Enum):
@@ -12,6 +12,7 @@ class WatchStatus(str, enum.Enum):
     IN_PROGRESS = 'IN_PROGRESS'
     WATCHED = 'WATCHED'
     NEED_TO_WATCH = 'NEED_TO_WATCH'
+    ERROR = 'ERROR'
 
 
 class RegularCheck(str, enum.Enum):
@@ -21,9 +22,11 @@ class RegularCheck(str, enum.Enum):
     TWICE_DAY = 'TWICE_DAY'
     ONCE_DAY = 'ONCE_DAY'
 
+
 Base = declarative_base(metadata)
 
-class SiteConfig(Base):
+
+class Site(Base):
     __tablename__ = 'sites'
     id = Column(Integer, primary_key=True)
     name = Column(String(50), unique=True)
@@ -40,5 +43,24 @@ class SiteConfig(Base):
         self.url = url
         self.regular_check = regular_check
         self.keys = keys
+
+class SiteVersion(Base):
+    __tablename__ = 'site_version'
+    id = Column(Integer, primary_key=True)
+    site_id = Column(Integer, ForeignKey(Site.id))
+    content = Column(Text)
+    differences = Column(Text)
+    match_keys = Column(Text)
+    created_at = Column(DateTime, server_default=func.now())
+    count_changes = Column(Integer)
+    count_match_keys = Column(Integer)
+
+    def __init__(self, site_id, content, differences, match_keys, count_changes, count_match_keys):
+        self.site_id = site_id
+        self.content = content
+        self.differences = differences
+        self.match_keys = match_keys
+        self.count_changes = count_changes
+        self.count_match_keys = count_match_keys
 
 Base.metadata.create_all(engine)

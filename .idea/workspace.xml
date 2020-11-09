@@ -1,18 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="26cdddbb-b2d1-4771-b2eb-07b8a30af939" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="26cdddbb-b2d1-4771-b2eb-07b8a30af939" name="Default Changelist" comment="Added threading async mode">
+      <change afterPath="$PROJECT_DIR$/analyze/actor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/MailPlugin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/Plugin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/PluginManager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/frontend/src/components/BackButton/BackButton.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/frontend/src/components/BackButton/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/frontend/src/components/ChangeList/ChangeList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/frontend/src/components/ChangeList/ChangeList.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/frontend/src/pages/StatisticPage/StatisticPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/frontend/src/utils/checks.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foo.db" beforeDir="false" afterPath="$PROJECT_DIR$/foo.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foo.db" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/site_downloader/actor.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_downloader/actor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site_storage/actor.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_storage/actor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site_storage/encoders.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_storage/encoders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site_storage/messages.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_storage/messages.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site_storage/sсhema.py" beforeDir="false" afterPath="$PROJECT_DIR$/site_storage/sсhema.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/system.py" beforeDir="false" afterPath="$PROJECT_DIR$/system.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/frontend/src/components/SiteForm/SiteForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/src/components/SiteForm/SiteForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/frontend/src/components/WatchTable/WatchTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/src/components/WatchTable/WatchTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/src/components/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/src/pages/CreateSite/CreateSite.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/src/pages/CreateSite/CreateSite.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/src/pages/CreateSite/CreateSite.scss" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/src/pages/CreateSite/CreateSite.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/src/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/src/utils/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/src/utils/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/frontend/static/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/static/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/rest.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/rest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/view/actor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +96,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -76,7 +112,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.system">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Plugin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="site_watcher" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -84,12 +120,56 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plugins" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plugins/Plugin.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PluginManager" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="site_watcher" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/plugins" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plugins/PluginManager.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="actor" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="site_watcher" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/view" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/view/actor.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -112,28 +192,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/view/rest.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="site_watcher" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/view" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/view/server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,9 +248,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.system" />
-        <item itemvalue="Python.server" />
+        <item itemvalue="Python.PluginManager" />
+        <item itemvalue="Python.Plugin" />
+        <item itemvalue="Python.actor" />
         <item itemvalue="Python.rest" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -211,34 +270,64 @@
       <workItem from="1604424461615" duration="7486000" />
       <workItem from="1604485025978" duration="29095000" />
       <workItem from="1604561533660" duration="2432000" />
-      <workItem from="1604564286945" duration="15819000" />
+      <workItem from="1604564286945" duration="27218000" />
+      <workItem from="1604665284641" duration="4956000" />
+      <workItem from="1604735290445" duration="127000" />
+      <workItem from="1604735430495" duration="1551000" />
+      <workItem from="1604737007265" duration="20993000" />
+      <workItem from="1604816448880" duration="28218000" />
+      <workItem from="1604940345622" duration="6008000" />
     </task>
+    <task id="LOCAL-00001" summary="Added threading async mode">
+      <created>1604582274188</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604582274188</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added threading async mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added threading async mode" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="2626" y="355" width="562" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604485588709">
+    <state x="2626" y="355" width="629" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604830745375">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2626" y="355" width="562" height="403" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604485588709" />
+    <state x="2626" y="355" width="629" height="403" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604830745375" />
     <state x="2642" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604315349998">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2642" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604315349998" />
-    <state width="1232" height="506" key="DebuggerActiveHint" timestamp="1604581981110">
+    <state width="1318" height="506" key="DebuggerActiveHint" timestamp="1604756407526">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1232" height="506" key="DebuggerActiveHint/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581981110" />
-    <state x="2078" y="127" width="1662" height="853" key="DiffContextDialog" timestamp="1604314605887">
+    <state width="1318" height="506" key="DebuggerActiveHint/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604756407526" />
+    <state x="2078" y="127" width="1662" height="853" key="DiffContextDialog" timestamp="1604669675300">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2078" y="127" width="1662" height="853" key="DiffContextDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604314605887" />
-    <state x="2692" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604569132887">
+    <state x="2078" y="127" width="1662" height="853" key="DiffContextDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604669675300" />
+    <state x="2692" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1604857134859">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2692" y="311" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604569132887" />
+    <state x="2692" y="311" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604857134859" />
     <state x="2753" y="453" width="311" height="207" key="Github.ShareDialog" timestamp="1604569152573">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -247,117 +336,78 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2694" y="233" width="419" height="647" key="Github.UntrackedFilesDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604569163574" />
-    <state width="1816" height="264" key="GridCell.Tab.0.bottom" timestamp="1604581985293">
+    <state width="1816" height="265" key="GridCell.Tab.0.bottom" timestamp="1604946448269">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1816" height="130" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690398" />
-    <state width="1816" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581985293" />
-    <state width="1816" height="264" key="GridCell.Tab.0.center" timestamp="1604581985293">
+    <state width="1816" height="265" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604946448269" />
+    <state width="1816" height="265" key="GridCell.Tab.0.center" timestamp="1604946448269">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1816" height="130" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690398" />
-    <state width="1816" height="264" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581985293" />
-    <state width="1816" height="264" key="GridCell.Tab.0.left" timestamp="1604581985293">
+    <state width="1816" height="265" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604946448269" />
+    <state width="1816" height="265" key="GridCell.Tab.0.left" timestamp="1604946448269">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1816" height="130" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690398" />
-    <state width="1816" height="264" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581985293" />
-    <state width="1816" height="264" key="GridCell.Tab.0.right" timestamp="1604581985293">
+    <state width="1816" height="265" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604946448269" />
+    <state width="1816" height="265" key="GridCell.Tab.0.right" timestamp="1604946448269">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1816" height="130" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690398" />
-    <state width="1816" height="264" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581985293" />
-    <state width="1816" height="264" key="GridCell.Tab.1.bottom" timestamp="1604581961584">
+    <state width="1816" height="265" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604946448269" />
+    <state width="1816" height="265" key="GridCell.Tab.1.bottom" timestamp="1604946435088">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1816" height="130" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690328" />
-    <state width="1816" height="264" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581961584" />
-    <state width="1816" height="264" key="GridCell.Tab.1.center" timestamp="1604581961584">
+    <state width="1816" height="265" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604946435088" />
+    <state width="1816" height="265" key="GridCell.Tab.1.center" timestamp="1604946435088">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1816" height="130" key="GridCell.Tab.1.center/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690328" />
-    <state width="1816" height="264" key="GridCell.Tab.1.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581961584" />
-    <state width="1816" height="264" key="GridCell.Tab.1.left" timestamp="1604581961584">
+    <state width="1816" height="265" key="GridCell.Tab.1.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604946435088" />
+    <state width="1816" height="265" key="GridCell.Tab.1.left" timestamp="1604946435088">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1816" height="130" key="GridCell.Tab.1.left/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690328" />
-    <state width="1816" height="264" key="GridCell.Tab.1.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581961584" />
-    <state width="1816" height="264" key="GridCell.Tab.1.right" timestamp="1604581961584">
+    <state width="1816" height="265" key="GridCell.Tab.1.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604946435088" />
+    <state width="1816" height="265" key="GridCell.Tab.1.right" timestamp="1604946435088">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1816" height="130" key="GridCell.Tab.1.right/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604573690328" />
-    <state width="1816" height="264" key="GridCell.Tab.1.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604581961584" />
+    <state width="1816" height="265" key="GridCell.Tab.1.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604946435088" />
     <state x="1479" y="237" width="431" height="640" key="RollbackChangesDialog" timestamp="1604572123904">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="1479" y="237" width="431" height="640" key="RollbackChangesDialog/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604572123904" />
-    <state x="2398" y="188" width="1012" height="737" key="SettingsEditor" timestamp="1604575422777">
+    <state x="2398" y="188" width="1012" height="737" key="SettingsEditor" timestamp="1604820637514">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="478" y="210" width="1012" height="737" key="SettingsEditor/1920.0.1920.1080/0.27.1920.1053@0.27.1920.1053" timestamp="1604572228579" />
-    <state x="2398" y="188" width="1022" height="737" key="SettingsEditor/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604575422777" />
-    <state width="931" height="526" key="XDebugger.FullValuePopup" timestamp="1604562775057">
+    <state x="2398" y="188" width="1022" height="737" key="SettingsEditor/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604820637514" />
+    <state width="896" height="526" key="XDebugger.FullValuePopup" timestamp="1604760165265">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="931" height="526" key="XDebugger.FullValuePopup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604562775057" />
+    <state width="896" height="526" key="XDebugger.FullValuePopup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604760165265" />
     <state x="2078" y="127" width="1662" height="853" key="dock-window-1" timestamp="1604345532001">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2078" y="127" width="1662" height="853" key="dock-window-1/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604345532001" />
-    <state x="2600" y="162" width="618" height="783" key="find.popup" timestamp="1604495053201">
+    <state x="2600" y="162" width="618" height="783" key="find.popup" timestamp="1604946156843">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2600" y="162" width="618" height="783" key="find.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604495053201" />
-    <state x="2572" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1604566886001">
+    <state x="2600" y="162" width="618" height="783" key="find.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604946156843" />
+    <state x="2572" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1604945091632">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2572" y="259" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604566886001" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/site_downloader/actor.py</url>
-          <line>95</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/site_downloader/actor.py</url>
-          <line>88</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/site_downloader/actor.py</url>
-          <line>91</line>
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/view/server.py</url>
-          <line>47</line>
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/site_storage/actor.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="109" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/view/server.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="111" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/view/server.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="112" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="2572" y="259" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1604945091632" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/site_watcher$main.coverage" NAME="main Coverage Results" MODIFIED="1604262375183" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/site_watcher$Plugin.coverage" NAME="Plugin Coverage Results" MODIFIED="1604944739692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plugins" />
     <SUITE FILE_PATH="coverage/site_watcher$server.coverage" NAME="server Coverage Results" MODIFIED="1604421120412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/view" />
     <SUITE FILE_PATH="coverage/site_watcher$rest.coverage" NAME="rest Coverage Results" MODIFIED="1604419148683" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/view" />
-    <SUITE FILE_PATH="coverage/site_watcher$system.coverage" NAME="system Coverage Results" MODIFIED="1604581960827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/site_watcher$PluginManager.coverage" NAME="PluginManager Coverage Results" MODIFIED="1604945782536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/plugins" />
+    <SUITE FILE_PATH="coverage/site_watcher$system.coverage" NAME="system Coverage Results" MODIFIED="1604946424039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

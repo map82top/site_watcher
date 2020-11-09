@@ -1,0 +1,36 @@
+.ant-layout-content {
+  overflow: scroll !important;
+}
+
+.versions-body {
+  &-header {
+    display: flex;
+    flex-direction: row;
+    &-legend {
+      &-item {
+        display: flex;
+        flex-direction: row;
+
+        &-color-box {
+          border-radius: 50%;
+          margin-left: 3%;
+          margin-right: 0.8%;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
+
+.insert {
+  background-color: #21d100;
+}
+
+.replace {
+  background-color: #ffd800;
+}
+
+.keyword {
+  background-color: #e34234;
+}

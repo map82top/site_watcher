@@ -1,11 +1,36 @@
 import pykka
-from site_storage.sсhema import SiteConfig, RegularCheck, WatchStatus
-from site_storage.messages import SiteDeleteResponse
+from site_storage.sсhema import RegularCheck, WatchStatus
+from site_storage.messages import UpdateSiteRequest
+from site_storage.messages import SiteDeleteResponse, SiteResponse, SubscribeOnSiteUpdates
 import os
-import datetime
 import urllib.request
-from multiprocessing import Process
+from urllib.parse import urldefrag
 import time
+import threading
+from datetime import datetime
+import logging
+
+logger = logging.getLogger(__name__)
+
+class Handler(threading.Thread):
+    def __init__(self, downloader):
+        super().__init__(daemon=True)
+        self.downloader = downloader
+
+    def run(self):
+        last_update = datetime.now()
+        while True:
+            current_time = datetime.now()
+            difference = current_time - last_update
+            if difference.seconds >= 60:
+                self.downloader.recalculate_queue()
+                last_update = datetime.now()
+
+            if len(self.downloader.queue) > 0:
+                site = self.downloader.queue.pop()
+                self.downloader.download_site(site[1])
+
+            time.sleep(5)
 
 
 class SiteDownloaderActor(pykka.ThreadingActor):
@@ -18,41 +43,34 @@ class SiteDownloaderActor(pykka.ThreadingActor):
     }
 
     regular_check_duration = {
-        RegularCheck.TWICE_HOUR: 30,
+        RegularCheck.TWICE_HOUR: 1,
         RegularCheck.ONCE_HOUR: 60,
         RegularCheck.FOUR_TIMES_DAY: 360,
         RegularCheck.TWICE_DAY: 720,
         RegularCheck.ONCE_DAY: 1440
     }
 
-    def __init__(self, storage_proxy):
-        super().__init__()
-        self.pause_handle = False
-        self.storage_proxy = storage_proxy
-        self.sites = dict()
-        self.queue = list()
-        self.create_queue()
+    def __init__(self, storage_proxy, analytic_proxy):
+        try:
+            super().__init__()
+            self.storage_proxy = storage_proxy
+            self.analytic_proxy = analytic_proxy
+            self.sites = dict()
+            self.queue = list()
+            self.create_queue()
+            self.storage_proxy.subscribe_on_site_update(
+                    SubscribeOnSiteUpdates(self.actor_ref)
+            )
+            self.handle_process = Handler(downloader=self)
+        except Exception as e:
+            logger.error("Error occurred: {0}".format(e))
 
     def on_start(self):
-        self.handle_process = Process(target=self.handle())
         self.handle_process.start()
+        # self.handle_process.join()
 
-    def handle(self):
-        self.last_update = datetime.datetime.now()
-        while True:
-            if self.pause_handle:
-                continue
-
-            current_time = datetime.datetime.now()
-            difference = current_time - self.last_update
-
-            if difference.seconds >= 60:
-                self.recalculate_queue()
-                self.last_update = datetime.datetime.now()
-
-            if len(self.queue) > 0:
-                site = self.queue.pop()
-                self.download_site(site[1])
+    def on_stop(self):
+        self.handle_process.terminate()
 
     def create_queue(self):
         for site in self.storage_proxy.get_sites().get():
@@ -66,6 +84,9 @@ class SiteDownloaderActor(pykka.ThreadingActor):
         for site in self.sites.values():
             points = self.calculate_priority(site)
             if points > 0:
+                if site.last_watch is not None:
+                    self.storage_proxy.update_site(UpdateSiteRequest(id=site.id, status=WatchStatus.NEED_TO_WATCH))
+
                 self.queue.append((points, site))
         self.queue.sort(key=lambda x: x[0])
 
@@ -76,8 +97,8 @@ class SiteDownloaderActor(pykka.ThreadingActor):
         if site.last_watch is None:
             points = points + 10000
         else:
-            difference = datetime.datetime.now() - site.last_watch
-            fine = difference.minute - self.regular_check_duration[site.reqular_check]
+            difference = datetime.now() - datetime.fromisoformat(site.last_watch)
+            fine = (difference.seconds // 60) - self.regular_check_duration[site.regular_check]
             if fine < 0:
                 points = -1
             else:
@@ -86,31 +107,25 @@ class SiteDownloaderActor(pykka.ThreadingActor):
         return points
 
     def on_receive(self, message):
-        if isinstance(message, SiteConfig):
+        if isinstance(message, SiteResponse):
             self.on_site_record(message)
 
         if isinstance(message, SiteDeleteResponse):
             self.on_delete_site(message)
 
     def on_site_record(self, site):
-        self.pause_handle = True
-        if site.id not in self.sites:
-            points = self.calculate_priority(site)
-            self.queue.append((points, site))
-            self.queue.sort(reverse=True, key=lambda x: x[0])
-
         self.sites[site.id] = site
-        self.pause_handle = False
 
     def on_delete_site(self, message):
         del self.sites[message.id]
 
     def download_site(self, site):
         try:
-            site.status = WatchStatus.IN_PROGRESS
-            self.storage_proxy.update_site(site)
+            self.storage_proxy.update_site(UpdateSiteRequest(id=site.id, status=WatchStatus.IN_PROGRESS))
             with urllib.request.urlopen(site.url) as f:
                 html = f.read().decode('utf-8')
-                print('site downloaded')
+                logger.debug('Site {0} - {1} downloaded'.format(site.name, site.url))
+                self.analytic_proxy.analyze_site(site, html)
         except Exception as e:
-            print(e)
+            logger.error("Error occurred: {0}".format(e))
+            self.storage_proxy.update_site(UpdateSiteRequest(id=site.id, status=WatchStatus.ERROR))
