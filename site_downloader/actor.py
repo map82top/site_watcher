@@ -15,11 +15,12 @@ logger = logging.getLogger(__name__)
 class Handler(threading.Thread):
     def __init__(self, downloader):
         super().__init__(daemon=True)
+        self.running = True
         self.downloader = downloader
 
     def run(self):
         last_update = datetime.now()
-        while True:
+        while self.running:
             current_time = datetime.now()
             difference = current_time - last_update
             if difference.seconds >= 60:
@@ -31,6 +32,10 @@ class Handler(threading.Thread):
                 self.downloader.download_site(site[1])
 
             time.sleep(5)
+
+    def stop(self):
+        self.running = False
+        print('Site downloader stopped')
 
 
 class SiteDownloaderActor(pykka.ThreadingActor):
@@ -67,10 +72,9 @@ class SiteDownloaderActor(pykka.ThreadingActor):
 
     def on_start(self):
         self.handle_process.start()
-        # self.handle_process.join()
 
     def on_stop(self):
-        self.handle_process.terminate()
+        self.handle_process.stop()
 
     def create_queue(self):
         for site in self.storage_proxy.get_sites().get():

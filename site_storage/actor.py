@@ -24,6 +24,9 @@ class SiteStorageActor(pykka.ThreadingActor):
         self.site_subscribers = []
         self.version_subscribers = []
 
+    def on_stop(self):
+        print('Storage stopped')
+
     def create_site_record(self, site):
         try:
             if not isinstance(site, CreateSiteRequest):

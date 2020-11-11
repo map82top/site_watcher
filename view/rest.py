@@ -10,8 +10,9 @@ import os
 app = Flask(__name__,
             static_url_path='',
             static_folder='frontend/static')
-socketio = SocketIO(app, async_mode='threading')
+socketio = SocketIO(app, async_mode='gevent')
 
+context = app.app_context()
 
 @app.route('/')
 def index():
@@ -28,7 +29,6 @@ def update_site():
 @app.route('/versions_statistic')
 def versions_statistic():
     return app.send_static_file("index.html")
-
 
 @socketio.on('save_site')
 def save_site(data):

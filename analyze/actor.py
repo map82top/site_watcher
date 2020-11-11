@@ -37,6 +37,9 @@ class SitaAnalyticActor(pykka.ThreadingActor):
         super().__init__()
         self.storage_proxy = storage_proxy
 
+    def on_stop(self):
+        print('Analyze stopped')
+
     def analyze_site(self, site, html):
         try:
             logger.debug('Start analyze {0}'.format(site.name))

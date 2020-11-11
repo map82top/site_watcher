@@ -7,6 +7,7 @@ from analyze.actor import SitaAnalyticActor
 from multiprocessing import Process
 from view.rest import app, socketio
 import os
+import sys
 
 
 site_storage = SiteStorageActor.start()
@@ -22,9 +23,12 @@ site_downloader = SiteDownloaderActor.start(site_storage.proxy(), site_analytic.
 os.environ["SITE_DOWNLOADER_URN"] = site_downloader.actor_urn
 
 print("======== SYSTEM STARTED ========")
-while True:
+running = True
+while running:
     print('Entre q to exit:')
     enter = input()
     if enter == 'q':
         pykka.ActorRegistry.stop_all()
-        exit(0)
+        running = False
+
+print('Server stopped')

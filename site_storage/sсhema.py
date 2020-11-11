@@ -4,7 +4,7 @@ from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import declarative_base
 
 metadata = MetaData()
-engine = create_engine('sqlite:///foo.db', echo=True, connect_args={'check_same_thread': False})
+engine = create_engine('sqlite:///foo.db', echo=False, connect_args={'check_same_thread': False})
 
 
 class WatchStatus(str, enum.Enum):

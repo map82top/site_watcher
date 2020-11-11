@@ -1,5 +1,5 @@
 import pykka
-from .rest import socketio, app, create_full_site_record
+from .rest import socketio, app, create_full_site_record, context
 from site_storage.encoders import AlchemyEncoder
 from site_storage.messages import SiteDeleteResponse, SiteResponse, SubscribeOnSiteUpdates, SubscribeOnVersionsUpdates, SiteVersionResponse
 from multiprocessing import Process
@@ -14,16 +14,19 @@ import logging
 logger = logging.getLogger(__name__)
 
 class HttpServer(threading.Thread):
-    def __init__(self, socketio, app):
+    def __init__(self, socketio, app, context):
         super().__init__()
         self.app = app
         self.socketio = socketio
+        self.ctx = context
+        self.ctx.push()
 
     def run(self):
         self.socketio.run(self.app)
 
     def stop(self):
-        self.socketio.stop()
+        with app.test_request_context():
+            self.socketio.stop()
 
 
 class ServerActor(pykka.ThreadingActor):
@@ -32,7 +35,7 @@ class ServerActor(pykka.ThreadingActor):
         self.storage_proxy = storage_proxy
         self.app = app
         self.socketio = socketio
-        self.http_server = HttpServer(socketio, app)
+        self.http_server = HttpServer(socketio, app, context)
         self.storage_proxy.subscribe_on_site_update(
             SubscribeOnSiteUpdates(self.actor_ref)
         )
@@ -45,6 +48,7 @@ class ServerActor(pykka.ThreadingActor):
 
     def on_stop(self):
         self.http_server.stop()
+        print('View stopped')
 
     def on_receive(self, message):
         try:
