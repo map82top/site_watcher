@@ -10,9 +10,9 @@ import os
 app = Flask(__name__,
             static_url_path='',
             static_folder='frontend/static')
-socketio = SocketIO(app, async_mode='gevent')
+socketio = SocketIO(app, async_mode='threading')
 
-context = app.app_context()
+# context = app.app_context()
 
 @app.route('/')
 def index():

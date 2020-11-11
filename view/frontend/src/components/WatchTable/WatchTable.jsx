@@ -47,7 +47,7 @@ const WatchTable = props => {
 
     const handleResponse = (response) => {
          response = JSON.parse(response);
-         debugger;
+
          openNotification({
                 title: 'Result',
                 text: response.message,
@@ -84,7 +84,6 @@ const WatchTable = props => {
     }
 
     const onUpdateSite = (record) => {
-        debugger;
           history.replace({ pathname: "/update_site", state: record })
     }
 

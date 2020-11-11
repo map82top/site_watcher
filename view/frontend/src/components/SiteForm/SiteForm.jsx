@@ -41,16 +41,25 @@ const SiteForm = props => {
     }
 
     const checkKeyListStatus = (rule, value, callback) => {
-       if(keys.length === 0) {
-           callback(new Object());
-       }
+        try {
+           if (keys.length === 0) {
+                throw new Error('Something wrong!');
+            }
+            callback() // < -- this
+          } catch (err) {
+            callback(err);
+          }
     }
 
     const isValidURL = (rule, value, callback) => {
-        debugger;
-        if(!checks.isValidHttpUrl(value)) {
-           callback(new Object());
-        }
+         try {
+           if (!checks.isValidHttpUrl(value)) {
+                throw new Error('Something wrong!');
+            }
+            callback() // < -- this
+          } catch (err) {
+            callback(err);
+          }
     }
 
     const onAddNewKey = () => {
