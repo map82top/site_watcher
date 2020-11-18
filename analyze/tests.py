@@ -61,25 +61,6 @@ class TestAnalyzerActor(SiteAnalyticActor):
 
     def test_find_key_matches_new(self):
         try:
-            html = read_test_page('test/test_page.html')
-            site = create_test_site_response()
-            new_content = self._find_watch_fragments(site, html)
-            result_keys = {}
-
-            for selector in new_content:
-                selector_content = new_content[selector]
-                result_keys[selector] = result_keys.get(selector, []) + self._find_key_matches(site, selector_content)
-
-            self.asserter.assertEqual(len(result_keys['.news']), 2)
-            self.asserter.assertEqual(result_keys['.news'][0].name, 'зоопарк')
-            self.asserter.assertEqual(result_keys['.news'][1].name, 'шоссе')
-            self.asserter.assertEqual(len(result_keys['#date']), 0)
-            return True
-        except:
-            return False
-
-    def test_find_key_matches_new(self):
-        try:
             site = create_test_site_response()
             content = 'Из зоопарка сбежал жираф В ***районе открыли новую школу Закончен ремонт 20 километра дороги шоссе Кострома-Рязань'
             result = self._find_key_matches(site, content.split())
@@ -107,10 +88,9 @@ class TestAnalyzerActor(SiteAnalyticActor):
         try:
             site = create_test_site_response()
             content = 'Из зоопарка сбежал жираф В ***районе открыли новую школу Закончен ремонт 20 километра дороги шоссе Кострома-Рязань'
-            result = self._find_key_matches(site, content.split(), 11, 150)
+            result = self._find_key_matches(site, content.split(), 140, 150)
 
-            self.asserter.assertEqual(len(result), 1)
-            self.asserter.assertEqual(result[0].name, 'шоссе')
+            self.asserter.assertEqual(len(result), 0)
             return True
         except:
             return False
@@ -148,7 +128,7 @@ class TestAnalyzerActor(SiteAnalyticActor):
                 def save_site_version(self, site_version):
                     self.asserter.assertEqual(type(site_version), SaveSiteVersion)
                     self.asserter.assertEqual(site_version.site_id, site.id)
-                    self.asserter.assertEqual(site_version.count_changes, 2)
+                    self.asserter.assertEqual(site_version.count_changes, 3)
                     differences = json.loads(site_version.differences)
                     keys = json.loads(site_version.match_keys)
 

@@ -44,28 +44,6 @@ def parse_json_array(json_array: str):
         json_array = str(json_array)
     return [split_chunk for split_chunk in re.split(r"\[\'|\'\]|,|\'", json_array) if split_chunk.strip() != '']
 
-def add_spaces_before_capitalize_words(text):
-    count_uppercase = 0
-    for uppercase in re.finditer("[^A-ZA-Я\s-]{1}[A-ZA-Я]{1}", text):
-        before_content = text[0: uppercase.start() + count_uppercase + 1]
-        after_content = text[uppercase.end() + count_uppercase - 1: len(text)]
-
-        text = before_content + ' ' + after_content
-        count_uppercase = count_uppercase + 1
-
-    return text
-
-def add_spaces_after_uppercase_word(text):
-    count_uppercase = 0
-    for uppercase in re.finditer("[A-ZA-Я]{1, }[a-zа-я]{1}", text):
-        before_content = text[0: uppercase.end() + count_uppercase - 1]
-        after_content = text[uppercase.end() + count_uppercase: len(text)]
-
-        text = before_content + ' ' + after_content
-        count_uppercase = count_uppercase + 1
-
-    return text
-
 class EnhancedJSONEncoder(json.JSONEncoder):
     def default(self, o):
         if is_dataclass(o):
