@@ -39,6 +39,7 @@ class CreateSiteRequest:
         name: str
         url: str
         keys: list
+        selectors: list
         regular_check: RegularCheck
 
 
@@ -48,6 +49,7 @@ class SiteResponse:
         name: str
         url: str
         keys: list
+        selectors: list
         last_watch: datetime = None
         count_watches: int = 0
         regular_check: RegularCheck = RegularCheck.ONCE_DAY
@@ -60,6 +62,7 @@ class UpdateSiteRequest:
         name: str = None
         url: str = None
         keys: list = None
+        selectors: list = None
         last_watch: datetime = None
         count_watches: int = None
         regular_check: RegularCheck = None

@@ -7,11 +7,11 @@ import json
 import threading
 import os
 from site_storage.encoders import AlchemyEncoder
-from plugins import PluginManager
+# from plugins import PluginManager
 import logging
 
-
 logger = logging.getLogger(__name__)
+
 
 class HttpServer(threading.Thread):
     def __init__(self, socketio, app):
@@ -46,7 +46,7 @@ class ServerActor(pykka.ThreadingActor):
 
     def on_stop(self):
         self.http_server.stop()
-        print('View stopped')
+        logger.debug('View stopped')
 
     def on_receive(self, message):
         try:
@@ -67,7 +67,7 @@ class ServerActor(pykka.ThreadingActor):
         site = storage_proxy.get_site_by_id(site_version.site_id).get()
 
         socketio.emit('site_version', json.dumps(site_version, cls=AlchemyEncoder))
-        PluginManager.call_all_plugins({'site': site, 'version': site_version})
+        # PluginManager.call_all_plugins({'site': site, 'version': site_version})
 
     def on_site_record(self, site):
         storage_urn = os.environ["SITE_STORAGE_URN"]

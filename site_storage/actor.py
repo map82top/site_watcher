@@ -2,7 +2,7 @@ import pykka
 import logging
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from .sсhema import Site, SiteVersion, engine, metadata
+from .sсhema import Site, SiteVersion, metadata, create_database
 from .messages import SiteDeleteResponse, ResponseStatus, \
     SiteResponse, SiteDeleteRequest, UpdateSiteRequest, CreateSiteRequest, SubscribeOnSiteUpdates, \
     SiteVersionResponse, SaveSiteVersion, SiteCreateResponse, SiteUpdateResponse, SubscribeOnVersionsUpdates
@@ -10,7 +10,8 @@ from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
-def __format_datetime__(date:datetime):
+
+def format_datetime(date:datetime):
     if date is None:
         return None
     else:
@@ -20,6 +21,7 @@ def __format_datetime__(date:datetime):
 class SiteStorageActor(pykka.ThreadingActor):
     def __init__(self):
         super().__init__()
+        engine = create_database()
         self.Session = sessionmaker(bind=engine, expire_on_commit=True)
         self.site_subscribers = []
         self.version_subscribers = []
@@ -37,13 +39,14 @@ class SiteStorageActor(pykka.ThreadingActor):
                 site.name,
                 site.url,
                 site.regular_check,
-                site.keys
+                site.keys,
+                site.selectors
             )
             session.add(site_model)
             session.commit()
-            site_create_response = self.__convert_to_site_response__(site_model)
+            site_create_response = self.__convert_to_site_response(site_model)
 
-            self.__send_all_subscibers__(site_create_response, self.site_subscribers)
+            self.__send_all_subscibers(site_create_response, self.site_subscribers)
             return SiteCreateResponse("{0} site is created".format(site_create_response.name), ResponseStatus.success)
         except Exception as e:
             logger.error("Error occurred: {0}".format(e))
@@ -56,21 +59,22 @@ class SiteStorageActor(pykka.ThreadingActor):
 
             session = self.Session()
             site = session.query(Site).filter_by(id=id).first()
-            return self.__convert_to_site_response__(site)
+            return self.__convert_to_site_response(site)
         except Exception as e:
             logger.error("Error occurred: {0}".format(e))
 
-    def __convert_to_site_response__(self, site):
+    def __convert_to_site_response(self, site):
         return SiteResponse(
             id=site.id,
             name=site.name,
             url=site.url,
             keys=site.keys,
-            last_watch=__format_datetime__(site.last_watch),
+            last_watch=format_datetime(site.last_watch),
             count_watches=site.count_watches,
             regular_check=site.regular_check,
             status=site.status,
-            created_at=__format_datetime__(site.created_at)
+            created_at=format_datetime(site.created_at),
+            selectors=site.selectors
         )
 
     def get_sites(self):
@@ -80,7 +84,7 @@ class SiteStorageActor(pykka.ThreadingActor):
             all_sites_response = []
 
             for site in all_sites:
-                all_sites_response.append(self.__convert_to_site_response__(site))
+                all_sites_response.append(self.__convert_to_site_response(site))
 
             return all_sites_response
         except Exception as e:
@@ -110,7 +114,7 @@ class SiteStorageActor(pykka.ThreadingActor):
                     site.id
                 )
                 session.commit()
-                self.__send_all_subscibers__(response, self.site_subscribers)
+                self.__send_all_subscibers(response, self.site_subscribers)
         except Exception as e:
             logger.error("Error occurred: {0}".format(e))
             return SiteDeleteResponse(
@@ -135,6 +139,9 @@ class SiteStorageActor(pykka.ThreadingActor):
             if site.keys is not None:
                 site_model.keys = site.keys
 
+            if site.selectors is not None:
+                site_model.selectors = site.selectors
+
             if site.name is not None:
                 site_model.name = site.name
 
@@ -158,13 +165,14 @@ class SiteStorageActor(pykka.ThreadingActor):
 
             session.add(site_model)
             session.commit()
-            self.__send_all_subscibers__(self.__convert_to_site_response__(site_model), self.site_subscribers)
+            self.__send_all_subscibers(self.__convert_to_site_response(site_model), self.site_subscribers)
             return SiteUpdateResponse("Site record is updated", ResponseStatus.success)
+
         except Exception as e:
             logger.error("Error occurred: {0}".format(e))
             return SiteUpdateResponse("Error occurred: {0}".format(e), ResponseStatus.error)
 
-    def __send_all_subscibers__(self, message, subscribers):
+    def __send_all_subscibers(self, message, subscribers):
         for subscriber in subscribers:
             subscriber.actor_proxy.tell(message)
 
@@ -203,7 +211,7 @@ class SiteStorageActor(pykka.ThreadingActor):
 
             session.add(site_version)
             session.commit()
-            self.__send_all_subscibers__(self.__convert_to_site_version_response__(site_version), self.version_subscribers)
+            self.__send_all_subscibers(self.__convert_to_site_version_response(site_version), self.version_subscribers)
         except Exception as e:
             logger.error("Error occurred: {0}".format(e))
 
@@ -214,7 +222,7 @@ class SiteStorageActor(pykka.ThreadingActor):
 
             session = self.Session()
             last_site_version = session.query(SiteVersion).filter_by(site_id=site_id).order_by(SiteVersion.created_at.desc()).limit(1).first()
-            return self.__convert_to_site_version_response__(last_site_version)
+            return self.__convert_to_site_version_response(last_site_version)
         except Exception as e:
             logger.error("Error occurred: {0}".format(e))
 
@@ -227,13 +235,13 @@ class SiteStorageActor(pykka.ThreadingActor):
             all_last_site_versions = session.query(SiteVersion).filter_by(site_id=site_id).all()
             all_last_site_version_responses = []
             for site_version in all_last_site_versions:
-                all_last_site_version_responses.append(self.__convert_to_site_version_response__(site_version))
+                all_last_site_version_responses.append(self.__convert_to_site_version_response(site_version))
 
             return all_last_site_version_responses
         except Exception as e:
             logger.error("Error occurred: {0}".format(e))
 
-    def __convert_to_site_version_response__(self, site_version):
+    def __convert_to_site_version_response(self, site_version):
         if site_version is None:
             return None
         else:
@@ -243,7 +251,7 @@ class SiteStorageActor(pykka.ThreadingActor):
                 content=site_version.content,
                 differences=site_version.differences,
                 match_keys=site_version.match_keys,
-                created_at=__format_datetime__(site_version.created_at),
+                created_at=format_datetime(site_version.created_at),
                 count_match_keys=site_version.count_match_keys,
                 count_changes=site_version.count_changes
             )

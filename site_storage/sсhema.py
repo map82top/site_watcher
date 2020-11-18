@@ -4,8 +4,6 @@ from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import declarative_base
 
 metadata = MetaData()
-engine = create_engine('sqlite:///foo.db', echo=False, connect_args={'check_same_thread': False})
-
 
 class WatchStatus(str, enum.Enum):
     NEW = 'NEW'
@@ -37,12 +35,14 @@ class Site(Base):
     count_watches = Column(Integer, default=0)
     created_at = Column(DateTime, server_default=func.now())
     keys = Column(Text, default='[]')
+    selectors = Column(Text, default='[]')
 
-    def __init__(self, name, url, regular_check, keys='[]'):
+    def __init__(self, name, url, regular_check, keys='[]', selectors='[]'):
         self.name = name
         self.url = url
         self.regular_check = regular_check
         self.keys = keys
+        self.selectors = selectors
 
 class SiteVersion(Base):
     __tablename__ = 'site_version'
@@ -63,4 +63,7 @@ class SiteVersion(Base):
         self.count_changes = count_changes
         self.count_match_keys = count_match_keys
 
-Base.metadata.create_all(engine)
+def create_database():
+    engine = create_engine('sqlite:///foo.db', echo=False, connect_args={'check_same_thread': False})
+    Base.metadata.create_all(engine)
+    return engine

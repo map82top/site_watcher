@@ -1,0 +1,25 @@
+.input-list {
+   &-description {
+      width: 100%;
+      margin: 1%;
+   }
+
+   &-input {
+        display: flex;
+        flex-direction: row;
+        margin-top: 1.8%;
+        //justify-content: space-between;
+
+        &-add-button {
+          margin-left: 3%;
+          width: 6vw !important;
+        }
+     }
+
+    &-list {
+      &-delete-button {
+        background-color: rgba(0, 0, 0, 0) !important;
+        border-color: rgba(0, 0, 0, 0) !important;
+      }
+    }
+}

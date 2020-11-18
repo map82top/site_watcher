@@ -40,7 +40,8 @@ def save_site(data):
         name=data['name'],
         url=data['url'],
         regular_check=RegularCheck[data["regular_check"]],
-        keys=str(data["keys"])
+        keys=str(data["keys"]),
+        selectors=str(data["selectors"])
     )
 
     response = storage_proxy.create_site_record(create_site_request).get()
@@ -58,7 +59,8 @@ def update_site(data):
         name=data['name'],
         url=data['url'],
         regular_check=RegularCheck[data["regular_check"]],
-        keys=str(data["keys"])
+        keys=str(data["keys"]),
+        selectors=str(data["selectors"])
     )
 
     response = storage_proxy.update_site(update_site_request).get()
@@ -93,9 +95,9 @@ def create_full_site_record(storage_proxy, site):
     site_versions = []
     for site_version in all_site_versions:
         site_versions.append({"date": site_version.created_at,
-                                           "count_changes": site_version.count_changes,
-                                           "count_match_keys": site_version.count_match_keys
-                                        })
+                              "count_changes": site_version.count_changes,
+                              "count_match_keys": site_version.count_match_keys
+                            })
     site.versions = json.dumps(site_versions, cls=AlchemyEncoder)
     return site
 

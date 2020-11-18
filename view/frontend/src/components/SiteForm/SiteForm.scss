@@ -9,25 +9,6 @@
   &-item {
       width: 40vw;
       margin-top: 2%;
-
-       &-keys-input {
-         display: flex;
-         flex-direction: row;
-         margin-top: 1.8%;
-        //justify-content: space-between;
-
-        &-add-button {
-          margin-left: 3%;
-          width: 6vw !important;
-        }
-     }
-
-    &-key-list {
-      &-delete-button {
-        background-color: rgba(0, 0, 0, 0) !important;
-        border-color: rgba(0, 0, 0, 0) !important;
-      }
-    }
   }
 
   &-submit-button {
@@ -37,4 +18,11 @@
     margin: 1% 0 1% 32vw !important;
   }
 
+}
+
+.collection-list-description {
+  background-color: rgba(0, 0, 0, 0) !important;
+  margin-right: 1%;
+  border-color: rgba(0, 0, 0, 0) !important;
+  font-size: 12px;
 }
